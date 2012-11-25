@@ -23,6 +23,38 @@
             IsSourceGrouped="true"
             ItemsPath="TopItems"
             d:Source="{Binding AllGroups, Source={d:DesignInstance Type=data:SampleDataSource, IsDesignTimeCreatable=True}}"/>
+
+
+            <!-- This is the style that defines the "Refresh" button with the arrow. 
+          Note that instead of using a graphic for the arrow the we are
+          using the arrow character in the Segoe UI Symbol font. This keeps us from 
+          having to define a graphic and enables us to style the individual 
+          pieces of the button independently. -->
+        <Style x:Key="RefreshButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <Button
+                                    Click="addPixelEvent"
+                                    AutomationProperties.Name="Group Title"
+                                    Style="{StaticResource TextPrimaryButtonStyle}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="/Assets/AddButton.png" Width="50" Height="50"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Page.Resources>
 
     <!--
@@ -125,12 +157,17 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}" Grid.ColumnSpan="2" Margin="119,0,30,-141">
-            	<Run Text="PixelPerfect Events:"/>
+            	<Run Text="PixelPerfect Events"/>
             	<LineBreak/>
             	<Run/>
             </TextBlock>
+              
+            <Button x:Name="StyledButton" Content="Refresh"
+                      Style="{StaticResource RefreshButtonStyle}" VerticalAlignment="Center" Margin="1141,201,0,-111" Grid.Column="1" Height="50"/>
+            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Add Event" VerticalAlignment="Top" FontSize="32" Grid.Column="1" Margin="682,201,0,-111" Width="435" Height="50"/>
         </Grid>
-
+        
+      
         <VisualStateManager.VisualStateGroups>
 
             <!-- Visual states reflect the application's view state -->

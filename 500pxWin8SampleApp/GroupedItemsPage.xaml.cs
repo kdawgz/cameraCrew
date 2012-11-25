@@ -72,5 +72,15 @@ namespace _500pxWin8SampleApp
             this.Frame.Navigate(typeof(GroupedItemsPage1), "AllGroups");
 
         }
+
+        private void addEvent(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addPixelEvent(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
