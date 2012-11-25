@@ -1,5 +1,5 @@
-﻿using cameraCrewApp.Data;
-
+﻿using _500pxWin8SampleApp.Data;
+using _500pxWin8SampleApp.DataModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,13 +16,13 @@ using Windows.UI.Xaml.Navigation;
 
 // The Group Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234229
 
-namespace cameraCrewApp
+namespace _500pxWin8SampleApp
 {
     /// <summary>
     /// A page that displays an overview of a single group, including a preview of the items
     /// within the group.
     /// </summary>
-    public sealed partial class GroupDetailPage : cameraCrewApp.Common.LayoutAwarePage
+    public sealed partial class GroupDetailPage : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
         public GroupDetailPage()
         {
@@ -41,7 +41,7 @@ namespace cameraCrewApp
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var group = SampleDataSource.GetGroup((String)navigationParameter);
+            var group = ImageDataSource.GetGroup((String)navigationParameter);
             this.DefaultViewModel["Group"] = group;
             this.DefaultViewModel["Items"] = group.Items;
         }
@@ -56,7 +56,7 @@ namespace cameraCrewApp
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            var itemId = ((ImageDataItem)e.ClickedItem).UniqueId;
             this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
     }

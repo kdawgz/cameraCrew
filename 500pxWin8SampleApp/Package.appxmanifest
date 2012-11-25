@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
 
-  <Identity Name="be1a55d8-a160-4b36-bde9-8644bfa26523"
-            Publisher="CN=Kenneth Yip"
+  <Identity Name="d87090a6-f39d-4b55-8b9a-8a9f5903efdc"
+            Publisher="CN=marcgagn"
             Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>cameraCrewApp</DisplayName>
-    <PublisherDisplayName>Kenneth Yip</PublisherDisplayName>
+    <DisplayName>500pxWin8SampleApp</DisplayName>
+    <PublisherDisplayName>marcgagn</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -23,12 +23,12 @@
   <Applications>
     <Application Id="App"
         Executable="$targetnametoken$.exe"
-        EntryPoint="cameraCrewApp.App">
+        EntryPoint="_500pxWin8SampleApp.App">
         <VisualElements
-            DisplayName="cameraCrewApp"
+            DisplayName="500pxWin8SampleApp"
             Logo="Assets\Logo.png"
             SmallLogo="Assets\SmallLogo.png"
-            Description="cameraCrewApp"
+            Description="500pxWin8SampleApp"
             ForegroundText="light"
             BackgroundColor="#464646">
             <DefaultTile ShowName="allLogos" />

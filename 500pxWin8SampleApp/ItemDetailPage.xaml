@@ -1,18 +1,18 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
-    x:Class="cameraCrewApp.ItemDetailPage"
+    x:Class="_500pxWin8SampleApp.ItemDetailPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:cameraCrewApp"
-    xmlns:data="using:cameraCrewApp.Data"
-    xmlns:common="using:cameraCrewApp.Common"
+    xmlns:local="using:_500pxWin8SampleApp"
+    xmlns:data="using:_500pxWin8SampleApp.Data"
+    xmlns:common="using:_500pxWin8SampleApp.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Page.Resources>
-
+        <common:HtmlToStringConverter x:Name="HtmlToText"></common:HtmlToStringConverter>
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
             x:Name="itemsViewSource"
@@ -79,7 +79,7 @@
                                         </InlineUIContainer>
                                     </Paragraph>
                                     <Paragraph>
-                                        <Run FontWeight="SemiLight" Text="{Binding Content}"/>
+                                        <Run FontWeight="SemiLight" Text="{Binding Content, Converter={StaticResource HtmlToText}}"/>
                                     </Paragraph>
                                 </RichTextBlock>
 

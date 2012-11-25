@@ -1,9 +1,9 @@
 ﻿<Application
-    x:Class="cameraCrewApp.App"
+    x:Class="_500pxWin8SampleApp.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:cameraCrewApp"
-    xmlns:localData="using:cameraCrewApp.Data">
+    xmlns:local="using:_500pxWin8SampleApp"
+    xmlns:localData="using:_500pxWin8SampleApp.Data">
 
     <Application.Resources>
         <ResourceDictionary>
@@ -18,7 +18,7 @@
 
             <!-- Application-specific resources -->
 
-            <x:String x:Key="AppName">cameraCrewApp</x:String>
+            <x:String x:Key="AppName">500pxWin8SampleApp</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

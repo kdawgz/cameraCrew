@@ -1,18 +1,18 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
-    x:Class="cameraCrewApp.GroupDetailPage"
+    x:Class="_500pxWin8SampleApp.GroupDetailPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:cameraCrewApp"
-    xmlns:data="using:cameraCrewApp.Data"
-    xmlns:common="using:cameraCrewApp.Common"
+    xmlns:local="using:_500pxWin8SampleApp"
+    xmlns:data="using:_500pxWin8SampleApp.Data"
+    xmlns:common="using:_500pxWin8SampleApp.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Page.Resources>
-
+        <common:HtmlToStringConverter x:Name="HtmlToText"></common:HtmlToStringConverter>
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
             x:Name="itemsViewSource"
@@ -54,7 +54,7 @@
                 <StackPanel Width="480" Margin="0,4,14,0">
                     <TextBlock Text="{Binding Subtitle}" Margin="0,0,18,20" Style="{StaticResource SubheaderTextStyle}" MaxHeight="60"/>
                     <Image Source="{Binding Image}" Height="400" Margin="0,0,18,20" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                    <TextBlock Text="{Binding Description}" Margin="0,0,18,0" Style="{StaticResource BodyTextStyle}"/>
+                    <TextBlock Text="{Binding Description, Converter={StaticResource HtmlToText}}" Margin="0,0,18,0" Style="{StaticResource BodyTextStyle}"/>
                 </StackPanel>
             </GridView.Header>
             <GridView.ItemContainerStyle>
@@ -84,7 +84,7 @@
                 <StackPanel>
                     <TextBlock Text="{Binding Subtitle}" Margin="10,0,18,20" Style="{StaticResource TitleTextStyle}" MaxHeight="60"/>
                     <Image Source="{Binding Image}" Margin="10,0,18,0" MaxHeight="160" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                    <TextBlock Margin="10,20,18,30" Text="{Binding Description}" Style="{StaticResource BodyTextStyle}"/>
+                    <TextBlock Margin="10,20,18,30" Text="{Binding Description, Converter={StaticResource HtmlToText}}" Style="{StaticResource BodyTextStyle}"/>
                 </StackPanel>
             </ListView.Header>
         </ListView>

@@ -1,6 +1,4 @@
-﻿using cameraCrewApp.Data;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -14,17 +12,16 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Item Detail Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234232
+// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
-namespace cameraCrewApp
+namespace _500pxWin8SampleApp
 {
     /// <summary>
-    /// A page that displays details for a single item within a group while allowing gestures to
-    /// flip through other items belonging to the same group.
+    /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class ItemDetailPage : cameraCrewApp.Common.LayoutAwarePage
+    public sealed partial class BasicPage1 : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
-        public ItemDetailPage()
+        public BasicPage1()
         {
             this.InitializeComponent();
         }
@@ -40,17 +37,6 @@ namespace cameraCrewApp
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // Allow saved page state to override the initial item to display
-            if (pageState != null && pageState.ContainsKey("SelectedItem"))
-            {
-                navigationParameter = pageState["SelectedItem"];
-            }
-
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var item = SampleDataSource.GetItem((String)navigationParameter);
-            this.DefaultViewModel["Group"] = item.Group;
-            this.DefaultViewModel["Items"] = item.Group.Items;
-            this.flipView.SelectedItem = item;
         }
 
         /// <summary>
@@ -61,8 +47,11 @@ namespace cameraCrewApp
         /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
-            var selectedItem = (SampleDataItem)this.flipView.SelectedItem;
-            pageState["SelectedItem"] = selectedItem.UniqueId;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(GroupedItemsPage), "AllGroups");
         }
     }
 }

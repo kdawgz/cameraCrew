@@ -1,7 +1,7 @@
 ﻿using System;
 using Windows.UI.Xaml.Data;
 
-namespace cameraCrewApp.Common
+namespace _500pxWin8SampleApp.Common
 {
     /// <summary>
     /// Value converter that translates true to false and vice versa.

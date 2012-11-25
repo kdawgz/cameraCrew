@@ -1,5 +1,5 @@
-﻿using cameraCrewApp.Data;
-
+﻿using _500pxWin8SampleApp.Data;
+using _500pxWin8SampleApp.DataModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,12 +16,12 @@ using Windows.UI.Xaml.Navigation;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
-namespace cameraCrewApp
+namespace _500pxWin8SampleApp
 {
     /// <summary>
     /// A page that displays a grouped collection of items.
     /// </summary>
-    public sealed partial class GroupedItemsPage : cameraCrewApp.Common.LayoutAwarePage
+    public sealed partial class GroupedItemsPage : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
         public GroupedItemsPage()
         {
@@ -40,8 +40,8 @@ namespace cameraCrewApp
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleDataGroups = SampleDataSource.GetGroups((String)navigationParameter);
-            this.DefaultViewModel["Groups"] = sampleDataGroups;
+            var imageDataGroups = ImageDataSource.GetGroups((String)navigationParameter);
+            this.DefaultViewModel["Groups"] = imageDataGroups;
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace cameraCrewApp
 
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            this.Frame.Navigate(typeof(GroupDetailPage), ((SampleDataGroup)group).UniqueId);
+            this.Frame.Navigate(typeof(GroupDetailPage), ((ImageDataGroup)group).UniqueId);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace cameraCrewApp
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            var itemId = ((ImageDataItem)e.ClickedItem).UniqueId;
             this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
     }
