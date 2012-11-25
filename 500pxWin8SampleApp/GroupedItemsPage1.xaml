@@ -126,6 +126,13 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Text="PixelPerfect" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"/>
+            <Button AutomationProperties.Name="AddPhotoButton"
+                                    Style="{StaticResource TextPrimaryButtonStyle}" HorizontalAlignment="Right" Margin="0,186,135,-296" Height="250" Width="250" VerticalAlignment="Center" Canvas.ZIndex="2" Grid.Column="1" >
+            	<Grid>
+            		<Image Source="/Assets/AddPhotoForEvent.png" Width="250" Height="250" Margin="0,0,0,0"/>
+            		<Image Source="/Assets/PlusButton.png" Width="150" Height="150" Margin="55,0,70,125"/>
+            	</Grid>
+            </Button>
         </Grid>
 
         <VisualStateManager.VisualStateGroups>

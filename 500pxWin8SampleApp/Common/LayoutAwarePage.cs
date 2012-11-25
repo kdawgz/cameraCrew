@@ -356,7 +356,9 @@ namespace _500pxWin8SampleApp.Common
                 // Pass the navigation parameter and preserved page state to the page, using
                 // the same strategy for loading suspended state and recreating pages discarded
                 // from cache
-                this.LoadState(e.Parameter, (Dictionary<String, Object>)frameState[this._pageKey]);
+                //this.LoadState(e.Parameter, (Dictionary<String, Object>)frameState[this._pageKey]);
+                this.Frame.Navigate(typeof(GroupedItemsPage), "AllGroups");
+
             }
         }
 
@@ -367,10 +369,12 @@ namespace _500pxWin8SampleApp.Common
         /// property provides the group to be displayed.</param>
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            var frameState = SuspensionManager.SessionStateForFrame(this.Frame);
-            var pageState = new Dictionary<String, Object>();
-            this.SaveState(pageState);
-            frameState[_pageKey] = pageState;
+            //var frameState = SuspensionManager.SessionStateForFrame(this.Frame);
+            //var pageState = new Dictionary<String, Object>();
+            //this.SaveState(pageState);
+            //frameState[_pageKey] = pageState;
+
+            this.Frame.Navigate(typeof(GroupedItemsPage), "AllGroups");
         }
 
         /// <summary>

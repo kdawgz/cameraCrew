@@ -13,7 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using System.Diagnostics;
+using _500pxWin8SampleApp.Data;
+using _500pxWin8SampleApp.DataModel;
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
 namespace _500pxWin8SampleApp
@@ -23,6 +25,9 @@ namespace _500pxWin8SampleApp
     /// </summary>
     public sealed partial class GroupedItemsPage1 : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
+
+        EventsDataAccess eventsDataAccess = new EventsDataAccess();
+
         public GroupedItemsPage1()
         {
             this.InitializeComponent();
@@ -43,7 +48,7 @@ namespace _500pxWin8SampleApp
             var imageDataGroups = ImageDataSource.GetGroups((String)navigationParameter);
             this.DefaultViewModel["Groups"] = imageDataGroups;
         }
-
+        
         /// <summary>
         /// Invoked when a group header is clicked.
         /// </summary>
@@ -58,6 +63,7 @@ namespace _500pxWin8SampleApp
             // by passing required information as a navigation parameter
             this.Frame.Navigate(typeof(GroupDetailPage), ((ImageDataGroup)group).UniqueId);
         }
+
 
         /// <summary>
         /// Invoked when an item within a group is clicked.

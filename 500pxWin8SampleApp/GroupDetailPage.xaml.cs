@@ -24,6 +24,8 @@ namespace _500pxWin8SampleApp
     /// </summary>
     public sealed partial class GroupDetailPage : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
+
+
         public GroupDetailPage()
         {
             this.InitializeComponent();
@@ -40,11 +42,11 @@ namespace _500pxWin8SampleApp
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var group = ImageDataSource.GetGroup((String)navigationParameter);
             this.DefaultViewModel["Group"] = group;
             this.DefaultViewModel["Items"] = group.Items;
         }
+
 
         /// <summary>
         /// Invoked when an item is clicked.

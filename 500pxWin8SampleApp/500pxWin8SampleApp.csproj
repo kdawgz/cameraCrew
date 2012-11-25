@@ -106,11 +106,16 @@
     <Compile Include="BasicPage1.xaml.cs">
       <DependentUpon>BasicPage1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BasicPage2.xaml.cs">
+      <DependentUpon>BasicPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\FiveHundredPxAPIAdapterLibrary.cs" />
     <Compile Include="Common\HtmlToStringConverter.cs" />
     <Compile Include="Common\iDataTranslator.cs" />
     <Compile Include="Common\JsonDataTranslator.cs" />
     <Compile Include="DataModel\ImageDataSource.cs" />
+    <Compile Include="Azure\EventInvitesDataAccess.cs" />
+    <Compile Include="Azure\EventsDataAccess.cs" />
     <Compile Include="GroupedItemsPage.xaml.cs">
       <DependentUpon>GroupedItemsPage.xaml</DependentUpon>
     </Compile>
@@ -120,6 +125,7 @@
     <Compile Include="GroupedItemsPage1.xaml.cs">
       <DependentUpon>GroupedItemsPage1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Azure\GuestsDataAccess.cs" />
     <Compile Include="ItemDetailPage.xaml.cs">
       <DependentUpon>ItemDetailPage.xaml</DependentUpon>
     </Compile>
@@ -142,13 +148,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AddButton.png" />
+    <Content Include="Assets\AddPhotoForEvent.png" />
     <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\PlusButton.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />
+    <Page Include="BasicPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GroupedItemsPage1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -187,6 +199,11 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\Newtonsoft\Bin\WinRT\Newtonsoft.Json.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="MobileServicesManagedClient, Version=0.2.0.0">
+      <Name>Windows Azure Mobile Services Managed Client</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

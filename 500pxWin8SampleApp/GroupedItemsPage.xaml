@@ -164,7 +164,7 @@
               
             <Button x:Name="StyledButton" Content="Refresh"
                       Style="{StaticResource RefreshButtonStyle}" VerticalAlignment="Center" Margin="1141,201,0,-111" Grid.Column="1" Height="50"/>
-            <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="Add Event" VerticalAlignment="Top" FontSize="32" Grid.Column="1" Margin="682,201,0,-111" Width="435" Height="50"/>
+            <TextBox x:Name="AddEventLabel"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="Add Event" VerticalAlignment="Top" FontSize="32" Grid.Column="1" Margin="682,201,0,-111" Width="435" Height="50"/>
         </Grid>
         
       

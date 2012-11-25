@@ -14,7 +14,6 @@ using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using _500pxWin8SampleApp.Data;
 using _500pxWin8SampleApp.DataModel;
-
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 
 namespace _500pxWin8SampleApp
@@ -22,11 +21,12 @@ namespace _500pxWin8SampleApp
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class BasicPage1 : _500pxWin8SampleApp.Common.LayoutAwarePage
+    /// 
+    public sealed partial class BasicPage2 : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
         EventsDataAccess eventsDataAccess = new EventsDataAccess();
 
-        public BasicPage1()
+        public BasicPage2()
         {
             this.InitializeComponent();
         }
@@ -43,18 +43,13 @@ namespace _500pxWin8SampleApp
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
         }
-
-        /// <summary>
-        /// Preserves state associated with this page in case the application is suspended or the
-        /// page is discarded from the navigation cache.  Values must conform to the serialization
-        /// requirements of <see cref="SuspensionManager.SessionState"/>.
-        /// </summary>
-        /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
-        protected override void SaveState(Dictionary<String, Object> pageState)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            string name = e.Parameter as string;
+            this.EventLabel.Text = name;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             getEvents();
         }
@@ -71,6 +66,16 @@ namespace _500pxWin8SampleApp
             var imageDataGroups = ImageDataSource.GetGroups("AllGroups");
             this.DefaultViewModel["Groups"] = imageDataGroups;
             this.Frame.Navigate(typeof(GroupedItemsPage), imageDataGroups);
+        }
+        /// <summary>
+        /// Preserves state associated with this page in case the application is suspended or the
+        /// page is discarded from the navigation cache.  Values must conform to the serialization
+        /// requirements of <see cref="SuspensionManager.SessionState"/>.
+        /// </summary>
+        /// <param name="pageState">An empty dictionary to be populated with serializable state.</param>
+        protected override void SaveState(Dictionary<String, Object> pageState)
+        {
+
         }
     }
 }

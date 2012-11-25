@@ -15,7 +15,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
+using Microsoft.WindowsAzure.MobileServices;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 // The Grid App template is documented at http://go.microsoft.com/fwlink/?LinkId=234226
 
 namespace _500pxWin8SampleApp
@@ -25,6 +27,12 @@ namespace _500pxWin8SampleApp
     /// </summary>
     sealed partial class App : Application
     {
+        public static ObservableCollection<Events> _events = new ObservableCollection<Events>();
+
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+           "https://pixelperfect.azure-mobile.net/",
+           "uMXcfrEgUwRlURxQBaMqRwDqRrVlhP88"
+       );
         /// <summary>
         /// Initializes the singleton Application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

@@ -215,7 +215,6 @@ namespace _500pxWin8SampleApp.DataModel
     public sealed class ImageDataSource
     {
         private static ImageDataSource _ImageDataSource = new ImageDataSource();
-
         private ObservableCollection<ImageDataGroup> _allGroups = new ObservableCollection<ImageDataGroup>();
         public ObservableCollection<ImageDataGroup> AllGroups
         {
@@ -237,6 +236,7 @@ namespace _500pxWin8SampleApp.DataModel
             return null;
         }
 
+
         public static ImageDataItem GetItem(string uniqueId)
         {
             // Simple linear search is acceptable for small data sets
@@ -248,15 +248,18 @@ namespace _500pxWin8SampleApp.DataModel
         public ImageDataSource()
         {
             // Get the "Fresh Today" photos
-            //this.AddGroup("wedding", "Tom's Wedding");
-            this.AddGroup("brides", "FireFox's Wedding");
+          // this.AddGroup("brides", "Tom's Wedding");
+          // this.AddGroup("Cakes", "Tom's Wedding");
+            foreach (Events ev in App._events) {
+              this.AddGroup(ev.EventHashTag, ev.EventName);
+           }
         }
 
         private void AddGroup(string id, string name)
         {
             var api = new FiveHundredPxAPIClient("0d2f6ebac030037b57c9d8ce63228db2bc5747dd", new JsonDataTranslator());
-            var result = api.Get(string.Format("/v1/photos?feature={0}&sort=created_at&image_size=4&include_store=store_download&include_states=voted", id));
-            //var result = api.Get(string.Format("/v1/photos/search?term={0}", id));
+            //var result = api.Get(string.Format("/v1/photos?feature={0}&sort=created_at&image_size=4&include_store=store_download&include_states=voted", id));
+            var result = api.Get(string.Format("/v1/photos/search?term={0}", id));
             
             result.Completed = delegate(IAsyncOperation<dynamic> asyncAction, AsyncStatus asyncStatus)
             {
@@ -281,6 +284,11 @@ namespace _500pxWin8SampleApp.DataModel
                 this.AllGroups.Add(group);
             };
 
+        }
+
+        internal static object GetGroups(ObservableCollection<Events> events)
+        {
+            throw new NotImplementedException();
         }
     }
 }

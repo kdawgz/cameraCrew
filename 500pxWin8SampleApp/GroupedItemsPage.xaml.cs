@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 // The Grouped Items Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234231
 
@@ -23,6 +24,8 @@ namespace _500pxWin8SampleApp
     /// </summary>
     public sealed partial class GroupedItemsPage : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
+        EventsDataAccess eventsDataAccess = new EventsDataAccess();
+
         public GroupedItemsPage()
         {
             this.InitializeComponent();
@@ -39,8 +42,32 @@ namespace _500pxWin8SampleApp
         /// session.  This will be null the first time a page is visited.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
+
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var imageDataGroups = ImageDataSource.GetGroups((String)navigationParameter);
+            //var imageDataGroups = ImageDataSource.GetGroups((String)navigationParameter);
+            //this.DefaultViewModel["Groups"] = imageDataGroups;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            getEvents();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            getEvents();
+        }
+
+        async void getEvents()
+        {
+            var events = await eventsDataAccess.Get();
+            Debug.WriteLine("events");
+            foreach (var item in events)
+            {
+                Debug.WriteLine("Id={0}, EventName={1}, EventHashTag={2}", item.Id, item.EventName, item.EventHashTag);
+            }
+            App._events = events;
+            var imageDataGroups = ImageDataSource.GetGroups("AllGroups");
             this.DefaultViewModel["Groups"] = imageDataGroups;
         }
 
@@ -80,7 +107,8 @@ namespace _500pxWin8SampleApp
 
         private void addPixelEvent(object sender, RoutedEventArgs e)
         {
-
+            this.Frame.Navigate(typeof(BasicPage2), this.AddEventLabel.Text);
         }
+
     }
 }
