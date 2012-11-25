@@ -46,7 +46,7 @@
         	<LineBreak/>
         	<Run/>
         </TextBlock>
-        <Button Content="Button" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" FontSize="32" RenderTransformOrigin="0.436,0.131" Click="Button_Click_1" Width="150" Height="64" Margin="1095,377,0,0"/>
+        <Button Content="Login" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" FontSize="32" RenderTransformOrigin="0.436,0.131" Click="Button_Click_1" Width="150" Height="64" Margin="1095,377,0,0"/>
         <TextBox HorizontalAlignment="Left" Margin="140,380,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="32" Width="920" InputScope="AlphanumericFullWidth" ToolTipService.ToolTip="Enter Email To Login..." Height="61" />
 
         <VisualStateManager.VisualStateGroups>

@@ -56,8 +56,11 @@ namespace _500pxWin8SampleApp
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((ImageDataItem)e.ClickedItem).UniqueId;
-            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+            //var itemId = ((ImageDataItem)e.ClickedItem).UniqueId;
+            //this.Frame.Navigate(typeof(ItemDetailPage), itemId);
+
+            this.Frame.Navigate(typeof(GroupedItemsPage), "AllGroups");
+
         }
     }
 }

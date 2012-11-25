@@ -21,9 +21,9 @@ namespace _500pxWin8SampleApp
     /// <summary>
     /// A page that displays a grouped collection of items.
     /// </summary>
-    public sealed partial class GroupedItemsPage : _500pxWin8SampleApp.Common.LayoutAwarePage
+    public sealed partial class GroupedItemsPage1 : _500pxWin8SampleApp.Common.LayoutAwarePage
     {
-        public GroupedItemsPage()
+        public GroupedItemsPage1()
         {
             this.InitializeComponent();
         }
@@ -69,8 +69,8 @@ namespace _500pxWin8SampleApp
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            this.Frame.Navigate(typeof(GroupedItemsPage1), "AllGroups");
-
+            var itemId = ((ImageDataItem)e.ClickedItem).UniqueId;
+            this.Frame.Navigate(typeof(ItemDetailPage), itemId);
         }
     }
 }
